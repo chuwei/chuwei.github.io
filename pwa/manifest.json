@@ -1,7 +1,7 @@
 {
-  "name": "Hux Blog",
-  "short_name": "Hux Blog",
-  "description": "About an engineer & designer who loves web.",
+  "name": "Chuwei Homepage",
+  "short_name": "Chuwei Homepage",
+  "description": "游戏之心改变世界.",
   "icons": [{
     "src": "icons/128.png",
     "sizes": "128x128",
