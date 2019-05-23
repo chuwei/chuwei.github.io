@@ -6,17 +6,15 @@ author: chuwei
 comments: true
 categories: [未分类]
 ---
-购买VPS：[https://www.vultr.com/?ref=7530523](https://www.vultr.com/?ref=7530523)
-
-部署SSR代码：
-
-设置密码
-设置端口（防火墙要记得开放）
-设置加密 默认
-设置的协议插件 3
-设置的混淆插件 6
-自动部署
-完成后记下账号密码等信息
+购买VPS：[https://www.vultr.com/?ref=7530523](https://www.vultr.com/?ref=7530523)  
+部署SSR代码：  
+设置密码  
+设置端口（防火墙要记得开放）  
+设置加密 默认  
+设置的协议插件 3  
+设置的混淆插件 6  
+自动部署  
+完成后记下账号密码等信息  
 ```
 yum -y install wget
 wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh
@@ -114,18 +112,18 @@ wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
 chmod +x bbr.sh
 ./bbr.sh
 ```
-按任意键继续并重启服务器，服务端到此
+按任意键继续并重启服务器，服务端到此  
+----------------------------------------------
+安装ShadowsocksR-4.7.0-win客户端即可  
+输入相关信息即可  
+注意设置浏览器代理模式  
+127.0.0.1和1080即可  
 
-安装ShadowsocksR-4.7.0-win客户端即可
-输入相关信息即可
-注意设置浏览器代理模式
-127.0.0.1和1080即可
-
-常用命令
-启动：service shadowsocks start
-停止：service shadowsocks stop
-重启：service shadowsocks restart
-状态：service shadowsocks status
+常用命令  
+启动：service shadowsocks start  
+停止：service shadowsocks stop  
+重启：service shadowsocks restart  
+状态：service shadowsocks status  
 
 windows 客户端下载地址：
 [https://github.com/shadowsocksrr/shadowsocksr-csharp/releases](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)
