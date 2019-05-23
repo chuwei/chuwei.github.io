@@ -7,28 +7,29 @@ comments: true
 categories: [未分类]
 ---
 #一、Nginx部署安装
-
 安装Nginx依赖：c++环境
-``` linux
+```linux
 yum -y install gcc-c++
 yum -y install pcre pcre-devel
 yum -y install zlib zlib-devel
 yum -y install openssl openssl-devel
 ```
-
 解压nginx.
-``` linux
+```linux
 tar -zxvf nginx-1.15.0.tar.gz
 ```
-
 进入nginx目录。
-执行命令：./configure
+执行命令：
+```linux
+./configure
+```
 nginx 安装目录在 /usr/local/nginx
 
 输入命令：
+```linux
 make
 make install;
-
+```
 就可以在/usr/local/ 目录下找到nginx。
 启动则是在/usr/local/nginx/sbin
 
@@ -39,8 +40,10 @@ make install;
 添加Nginx到系统服务：
 
 在/etc/init.d/目录下编写脚本，名为nginx
+```linux
 vi /etc/init.d/nginx
-
+```
+```linux
 #! /bin/bash
 # chkconfig: - 85 15
 PATH=/usr/local/nginx
@@ -89,27 +92,29 @@ exit 3
 ;;
 esac
 exit 0
-
+```
 设置执行权限
+```linux
 chmod a+x /etc/init.d/nginx
-
+```
 注册成服务
+```linux
 chkconfig --add nginix
-
+```
 设置开机启动
+```linux
 chkconfig nginx on
-
-2、PHP部署安装
+```
+#2、PHP部署安装
 
 php下载地址：http://www.php.net/downloads.php
 
 解压安装
-# tar -zxfv php-7.2.9.tar.gz
-
-# cd  php-7.2.9
-
-# ./configure   --help
-# ./configure --prefix=/usr/local/php \
+```linux
+tar -zxfv php-7.2.9.tar.gz
+cd  php-7.2.9
+./configure   --help
+./configure --prefix=/usr/local/php \
 --with-curl \
 --with-freetype-dir \
 --with-gd \
@@ -143,27 +148,33 @@ php下载地址：http://www.php.net/downloads.php
 --enable-sysvsem \
 --enable-xml \
 --enable-zip
-
+```
 如果配置错误，需要安装需要的模块，直接yum一并安装依赖库
-# yum -y install libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel mysql pcre-devel
-
+```linux
+yum -y install libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel mysql pcre-devel
+```
 编译安装
-# make &amp;&amp;  make install
-
+```linux
+make &amp;&amp;  make install
+```
 配置文件
+```
 # cp php.ini-development /usr/local/php/lib/php.ini
 # cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
 # cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
 # cp -R ./sapi/fpm/php-fpm /etc/init.d/php-fpm
-
+```
 需要注意的是php7中www.conf这个配置文件配置phpfpm的端口号等信息，如果修改默认的9000端口号需在这里改，再改nginx的配置
 
 php-fpm后台启动参数，在php-fpm.conf中
+```
 daemonize = yes
 #后台执行fpm,默认值为yes，如果为了调试可以改为no。在FPM中，可以使用不同的设置来运行多个进程池。 这些设置可以针对每个进程池单独设置。
-
+```
 启动
+```
 #  /etc/init.d/php-fpm
+```
 php-fpm的启动参数
 #测试php-fpm配置
 /usr/local/php/sbin/php-fpm -t
