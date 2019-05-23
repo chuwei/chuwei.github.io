@@ -6,7 +6,7 @@ author: chuwei
 comments: true
 categories: [未分类]
 ---
-#一、Nginx部署安装
+# 一、Nginx部署安装
 安装Nginx依赖：c++环境
 ```
 yum -y install gcc-c++
@@ -105,9 +105,9 @@ chkconfig --add nginix
 ```
 chkconfig nginx on
 ```
-#2、PHP部署安装
+# 2、PHP部署安装
 
-php下载地址：http://www.php.net/downloads.php
+php下载地址：[http://www.php.net/downloads.php](http://www.php.net/downloads.php)
 
 解压安装
 ```
@@ -155,14 +155,15 @@ yum -y install libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel
 ```
 编译安装
 ```
-make &amp;&amp;  make install
+make
+make install
 ```
 配置文件
 ```
-# cp php.ini-development /usr/local/php/lib/php.ini
-# cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
-# cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
-# cp -R ./sapi/fpm/php-fpm /etc/init.d/php-fpm
+cp php.ini-development /usr/local/php/lib/php.ini
+cp /usr/local/php/etc/php-fpm.conf.default /usr/local/php/etc/php-fpm.conf
+cp /usr/local/php/etc/php-fpm.d/www.conf.default /usr/local/php/etc/php-fpm.d/www.conf
+cp -R ./sapi/fpm/php-fpm /etc/init.d/php-fpm
 ```
 需要注意的是php7中www.conf这个配置文件配置phpfpm的端口号等信息，如果修改默认的9000端口号需在这里改，再改nginx的配置
 
@@ -173,7 +174,7 @@ daemonize = yes
 ```
 启动
 ```
-#  /etc/init.d/php-fpm
+/etc/init.d/php-fpm
 ```
 php-fpm的启动参数
 ```
@@ -191,10 +192,10 @@ kill -INT `cat /usr/local/php/var/run/php-fpm.pid`
 #重启php-fpm
 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid`
 ```
-#3、配置Nginx访问PHP文件
+# 3、配置Nginx访问PHP文件
 ```
-# cd /usr/local/nginx/conf
-# vim nginx.conf
+cd /usr/local/nginx/conf
+vim nginx.conf
 ```
 ```
 location / {
@@ -210,12 +211,11 @@ include fastcgi_params;
 }
 ```
 
-#4、安装WordPress
+# 4、安装WordPress
 下载WordPress，解压到 /var/www/wordpress
-
 ```
-# cp wp-config-sample.php wp-config.php
-# vim wp-config.php
+cp wp-config-sample.php wp-config.php
+vim wp-config.php
 ```
 ```
 设置数据库连接用户名密码
