@@ -6,7 +6,7 @@ author: chuwei
 comments: true
 categories: [未分类]
 ---
-购买VPS：<a href="https://www.vultr.com/?ref=7530523">https://www.vultr.com/?ref=7530523</a>
+购买VPS：[https://www.vultr.com/?ref=7530523](https://www.vultr.com/?ref=7530523)
 
 部署SSR代码：
 
@@ -17,12 +17,13 @@ categories: [未分类]
 设置的混淆插件 6
 自动部署
 完成后记下账号密码等信息
-
+```
 yum -y install wget
 wget --no-check-certificate https://raw.githubusercontent.com/teddysun/shadowsocks_install/master/shadowsocksR.sh
 chmod +x shadowsocksR.sh
 ./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log
-
+```
+```
 # ./shadowsocksR.sh 2&gt;&amp;1 | tee shadowsocksR.log
 
 #############################################################
@@ -105,13 +106,14 @@ obfs = plain
 ---------------------------
 
 Press any key to start...or Press Ctrl+C to cancel
-
+```
 一键加速VPS服务器
+```
 yum -y install wget
 wget --no-check-certificate https://github.com/teddysun/across/raw/master/bbr.sh
 chmod +x bbr.sh
 ./bbr.sh
-
+```
 按任意键继续并重启服务器，服务端到此
 
 安装ShadowsocksR-4.7.0-win客户端即可
@@ -126,5 +128,4 @@ chmod +x bbr.sh
 状态：service shadowsocks status
 
 windows 客户端下载地址：
-
-<a href="https://github.com/shadowsocksrr/shadowsocksr-csharp/releases">https://github.com/shadowsocksrr/shadowsocksr-csharp/releases</a>
+[https://github.com/shadowsocksrr/shadowsocksr-csharp/releases](https://github.com/shadowsocksrr/shadowsocksr-csharp/releases)
