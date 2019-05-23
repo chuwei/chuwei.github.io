@@ -7,6 +7,11 @@ comments: true
 categories: [未分类]
 ---
 # 一、Nginx部署安装
+CentOS下nginx安装可以直接使用yum命令。安装完毕后nginx安装目录在 /etc/nginx
+```
+yum -y install nginx
+```
+手工编译安装方式如下：
 安装Nginx依赖：c++环境
 ```
 yum -y install gcc-c++
@@ -105,7 +110,7 @@ chkconfig --add nginix
 ```
 chkconfig nginx on
 ```
-# 2、PHP部署安装
+# 二、PHP部署安装
 
 php下载地址：[http://www.php.net/downloads.php](http://www.php.net/downloads.php)
 
@@ -192,7 +197,7 @@ kill -INT `cat /usr/local/php/var/run/php-fpm.pid`
 #重启php-fpm
 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid`
 ```
-# 3、配置Nginx访问PHP文件
+# 三、配置Nginx访问PHP文件
 ```
 cd /usr/local/nginx/conf
 vim nginx.conf
@@ -211,7 +216,7 @@ include fastcgi_params;
 }
 ```
 
-# 4、安装WordPress
+# 四、安装WordPress
 下载WordPress，解压到 /var/www/wordpress
 ```
 cp wp-config-sample.php wp-config.php
