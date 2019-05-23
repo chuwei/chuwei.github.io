@@ -9,17 +9,18 @@ categories: [未分类]
 #一、Nginx部署安装
 
 安装Nginx依赖：c++环境
-··· linux
+``` linux
 yum -y install gcc-c++
 yum -y install pcre pcre-devel
 yum -y install zlib zlib-devel
 yum -y install openssl openssl-devel
-···
+```
 
 解压nginx.
-··· linux
+``` linux
 tar -zxvf nginx-1.15.0.tar.gz
-···
+```
+
 进入nginx目录。
 执行命令：./configure
 nginx 安装目录在 /usr/local/nginx
