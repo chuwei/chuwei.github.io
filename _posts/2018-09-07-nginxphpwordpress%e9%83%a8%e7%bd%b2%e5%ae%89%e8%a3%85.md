@@ -8,25 +8,25 @@ categories: [未分类]
 ---
 #一、Nginx部署安装
 安装Nginx依赖：c++环境
-```linux
+```
 yum -y install gcc-c++
 yum -y install pcre pcre-devel
 yum -y install zlib zlib-devel
 yum -y install openssl openssl-devel
 ```
 解压nginx.
-```linux
+```
 tar -zxvf nginx-1.15.0.tar.gz
 ```
 进入nginx目录。
 执行命令：
-```linux
+```
 ./configure
 ```
 nginx 安装目录在 /usr/local/nginx
 
 输入命令：
-```linux
+```
 make
 make install;
 ```
@@ -40,10 +40,10 @@ make install;
 添加Nginx到系统服务：
 
 在/etc/init.d/目录下编写脚本，名为nginx
-```linux
+```
 vi /etc/init.d/nginx
 ```
-```linux
+```
 #! /bin/bash
 # chkconfig: - 85 15
 PATH=/usr/local/nginx
@@ -94,15 +94,15 @@ esac
 exit 0
 ```
 设置执行权限
-```linux
+```
 chmod a+x /etc/init.d/nginx
 ```
 注册成服务
-```linux
+```
 chkconfig --add nginix
 ```
 设置开机启动
-```linux
+```
 chkconfig nginx on
 ```
 #2、PHP部署安装
@@ -110,7 +110,7 @@ chkconfig nginx on
 php下载地址：http://www.php.net/downloads.php
 
 解压安装
-```linux
+```
 tar -zxfv php-7.2.9.tar.gz
 cd  php-7.2.9
 ./configure   --help
@@ -150,11 +150,11 @@ cd  php-7.2.9
 --enable-zip
 ```
 如果配置错误，需要安装需要的模块，直接yum一并安装依赖库
-```linux
+```
 yum -y install libjpeg libjpeg-devel libpng libpng-devel freetype freetype-devel libxml2 libxml2-devel mysql pcre-devel
 ```
 编译安装
-```linux
+```
 make &amp;&amp;  make install
 ```
 配置文件
@@ -176,6 +176,7 @@ daemonize = yes
 #  /etc/init.d/php-fpm
 ```
 php-fpm的启动参数
+```
 #测试php-fpm配置
 /usr/local/php/sbin/php-fpm -t
 /usr/local/php/sbin/php-fpm -c /usr/local/php/etc/php.ini -y /usr/local/php/etc/php-fpm.conf -t
@@ -189,11 +190,13 @@ kill -INT `cat /usr/local/php/var/run/php-fpm.pid`
 
 #重启php-fpm
 kill -USR2 `cat /usr/local/php/var/run/php-fpm.pid`
-
-3、配置Nginx访问PHP文件
+```
+#3、配置Nginx访问PHP文件
+```
 # cd /usr/local/nginx/conf
 # vim nginx.conf
-
+```
+```
 location / {
 root /var/www;
 index index.html index.htm index.php;
@@ -205,12 +208,16 @@ fastcgi_index index.php;
 fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
 include fastcgi_params;
 }
+```
 
-4、安装WordPress
+#4、安装WordPress
 下载WordPress，解压到 /var/www/wordpress
+
+```
 # cp wp-config-sample.php wp-config.php
 # vim wp-config.php
-
+```
+```
 设置数据库连接用户名密码
 // ** MySQL 设置 - 具体信息来自您正在使用的主机 ** //
 /** WordPress数据库的名称 */
@@ -224,3 +231,4 @@ define('DB_PASSWORD', '######');
 
 /** MySQL主机 */
 define('DB_HOST', 'localhost');
+```
